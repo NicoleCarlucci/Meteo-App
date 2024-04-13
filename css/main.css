@@ -162,6 +162,8 @@
       font-weight: 700;
       transition: scale 1s;
     }
+
+    /* Loader's Effects */
   
     .js-loading {
       .weather-icon {
