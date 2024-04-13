@@ -20,6 +20,35 @@ function onError() {
 }
 
 //Function to execute in case of success
-function onSuccess() {
-    console.log("Hai accettato la geolocalizzazione");
+async function onSuccess(position) {
+    console.log(position);
+
+    //Recover latitude and longitude
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    //Call Open Weather API
+    const API_KEY = "7562f9615bcdf50505671541e83bcb42";
+    const units = "metric";
+    const lang = "it";
+
+
+    const endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=${units}&lang=${lang}`;
+
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    console.log(data);
+    const iconCode = data.weather[0].icon;
+    const description = data.weather[0].description;
+
+    //Enter API call results in the page
+    weatherLocation.innerText = data.name;
+    weatherIcon.alt = description;
+    weatherIcon.src = `./img/${iconCode}.png`;
+    weatherTemperature.innerText = `${Math.floor(data.main.temp)}°`;
+
+    //Disable loader
+    htmlElement.className = "";
+
+    
 }
