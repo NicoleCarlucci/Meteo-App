@@ -129,6 +129,37 @@ textarea {
     font-size: 20px;
     text-transform: uppercase;
   }
+
+  main{
+    text-align: center;
+  }
+
+  img{
+    max-width: 90%;
+  }
+
+  /* Weather Info Panel */
+  .weather-info{
+    min-height: 450px;
+  }
+
+  .weather-location{
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 15px;
+  }
+
+  .weather-temperature {
+    font-size: 120px;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+
+  .suggestion{
+    font-size: 24px;
+    font-weight: 700;
+  }
 /* ==========================================================================
    Helper classes
    ========================================================================== */
